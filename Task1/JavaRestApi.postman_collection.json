@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "dbb44ece-8962-4692-b72e-70c59964c999",
+		"name": "JavaRestApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/servers",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{'name':'my centos','id':'123','language':'java','framework':'django'}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/servers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servers"
+					]
+				},
+				"description": "Put request to create server"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/servers/123",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/servers/123",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servers",
+						"123"
+					]
+				},
+				"description": "Delete a server by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/servers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/servers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servers"
+					]
+				},
+				"description": "Get all servers"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/servers/find/my c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/servers/find/my c",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servers",
+						"find",
+						"my c"
+					]
+				},
+				"description": "Find server by name"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/servers?id=123",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/servers?id=123",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "123"
+						}
+					]
+				},
+				"description": "Get server by id"
+			},
+			"response": []
+		}
+	]
+}
