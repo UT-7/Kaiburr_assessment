@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restserver
+  labels:
+    # the label below is not used in this deployment
+    #serviceType: kubespark-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      serviceType: kubespark-app
+  template:
+    metadata:
+      name: kubespark
+      labels:
+        # the service definition targets any pod with a matching name=value pair:
+        # here the label is "serviceType=kubespark-app" but "foo=bar" would work just as well.
+        serviceType: kubespark-app
+    spec:
+      containers:
+      - name: kubespark
+        image: restserver/server
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB
+          value: "mydb"
+        - name: COLL
+          value: "servers"
+        - name: USR
+          value: "root"
+        - name: PSWD
+          value: "password098"
+        - name: HOST
+          value: "mongodb-dev"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: restserver
+  namespace: default
+spec:
+  selector:
+    # match on Pods which have this label=value pair
+    serviceType: kubespark-app
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30000
+  type: NodePort
